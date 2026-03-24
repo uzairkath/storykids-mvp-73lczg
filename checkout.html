@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary | StoryKids</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="bg-soft">
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Story<span>Kids</span></a>
+        </div>
+    </nav>
+
+    <main class="container-small">
+        <div class="card checkout-card">
+            <h2>Order Summary</h2>
+            <div class="summary-row">
+                <span>Personalized Story (Digital PDF)</span>
+                <span class="price">$9.99</span>
+            </div>
+            <hr>
+            <div class="summary-row total">
+                <span>Total Due</span>
+                <span>$9.99</span>
+            </div>
+            
+            <div class="payment-notice">
+                <p>You will be redirected to Stripe's secure checkout.</p>
+            </div>
+
+            <button id="payBtn" class="btn btn-primary btn-full">Proceed to Payment</button>
+            <a href="form.html" class="btn-link">Edit Details</a>
+        </div>
+
+        <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <p>Redirecting to Stripe...</p>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('payBtn').addEventListener('click', () => {
+            const overlay = document.getElementById('loadingOverlay');
+            overlay.classList.remove('hidden');
+            
+            // Simulate Stripe Redirect
+            setTimeout(() => {
+                window.location.href = 'success.html';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
